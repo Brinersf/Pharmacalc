@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacalc - Calculadora Farmacêutica</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="page-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Cálculos</h2>
+                <button class="close-btn" id="closeSidebarBtn" aria-label="Fechar menu">&times;</button>
+            </div>
+            <nav id="calculator-menu">
+                </nav>
+        </aside>
+
+        <main class="content-area">
+            <header class="main-header">
+                <button class="menu-toggle-btn" id="openSidebarBtn" aria-label="Abrir menu">&#9776;</button>
+                <div class="header-content">
+                    <h1>Calculadora Farmacêutica</h1>
+                    <p>Precisão e agilidade para seus cálculos.</p>
+                </div>
+            </header>
+
+            <div class="calculator-display-area" id="calculator-display-area">
+                <div class="welcome-message">
+                    <img src="icon-calculator-main.png" alt="Pharmacalc" class="welcome-icon">
+                    <p>Selecione um cálculo no menu ao lado para começar.</p>
+                    <p class="subtle-text">Sua ferramenta completa para cálculos farmacêuticos.</p>
+                </div>
+                </div>
+
+            <footer>
+                Pharmacalc &copy; <span id="currentYear"></span>.
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

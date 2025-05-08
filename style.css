@@ -1,0 +1,309 @@
+/* Reset básico e configurações globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef1f5; /* Tom de fundo suave do seu código */
+    color: #333a45; /* Cor de texto principal do seu código */
+    line-height: 1.6;
+    overscroll-behavior-y: contain;
+}
+
+.page-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar (Menu Lateral) --- */
+.sidebar {
+    width: 280px;
+    background-color: #004a8c;
+    color: #e0e0e0;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100%;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 15px;
+    background-color: #003a70;
+    border-bottom: 1px solid #005ea2;
+}
+
+.sidebar-header h2 {
+    font-size: 1.3em;
+    color: #ffffff;
+}
+
+.sidebar .close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.8em;
+    cursor: pointer;
+    display: none;
+    padding: 5px;
+}
+
+#calculator-menu {
+    list-style: none;
+}
+
+#calculator-menu a {
+    display: block;
+    padding: 14px 20px;
+    color: #e0f0ff;
+    text-decoration: none;
+    border-bottom: 1px solid #005ea2;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.9em;
+}
+
+#calculator-menu a:hover,
+#calculator-menu a.active-link {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* --- Área de Conteúdo Principal --- */
+.content-area {
+    flex-grow: 1;
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    background-color: #eef1f5; /* Fundo da área de conteúdo */
+}
+
+.main-header {
+    background-color: #ffffff; /* Cabeçalho principal branco */
+    color: #005ea2; /* Cor do título do seu código */
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Sombra do seu código */
+    position: sticky;
+    top: 0;
+    z-index: 900;
+}
+.main-header .header-content {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.main-header h1 {
+    font-size: 1.6em; /* Ajustado */
+    margin-bottom: 2px;
+}
+.main-header p {
+    font-size: 0.8em;
+    color: #4a5568; /* Cor do seu código para labels */
+}
+
+.menu-toggle-btn {
+    background: none;
+    border: none;
+    color: #005ea2; /* Cor do título para o botão */
+    font-size: 1.6em;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-right: 15px;
+}
+
+.calculator-display-area {
+    padding: 25px;
+    flex-grow: 1;
+}
+.welcome-message {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.welcome-message .welcome-icon {
+    max-width: 80px; /* Ajuste o tamanho do ícone */
+    height: auto;
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+.welcome-message p {
+    color: #4a5568;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+.welcome-message .subtle-text {
+    font-size: 0.9em;
+    color: #777;
+}
+
+
+/* Estilos da calculadora individual (adaptados do seu código) */
+.calculadora {
+    background-color: #ffffff;
+    border: 1px solid #cdd3db;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.calculadora h3 {
+    margin-top: 0;
+    color: #005ea2;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    font-size: 1.4em; /* Do seu código */
+}
+
+.calculator-description,
+.calculator-formula,
+.calculadora small.calculator-notes { /* Classe para notas, usando small */
+    margin-bottom: 18px;
+    padding: 12px;
+    background-color: #e9f2fa;
+    border: 1px solid #c5d9e8;
+    border-radius: 6px;
+    font-size: 0.95em;
+    color: #334e68;
+}
+.calculator-formula {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f0f0f0;
+    border-color: #d8d8d8;
+}
+.calculator-formula strong { color: #005ea2; margin-right: 5px; }
+.calculator-formula .formula-text { color: #2c3e50; }
+.calculadora small.calculator-notes { /* Estilo de 'small' do seu código */
+    display: block;
+    color: #555e69;
+    font-style: italic;
+    background-color: transparent; /* Remove fundo se for apenas 'small' */
+    border: none;
+    padding: 0 0 12px 0; /* Ajusta padding */
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid #dee2e6;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.calculadora label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-top: 15px;
+}
+
+.calculadora input[type="number"],
+.calculadora input[type="text"] { /* Adicionado text para futuros campos */
+    width: 100%; /* Ajustado para 100% e padding controlará o tamanho interno */
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #b8c2cc;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.2s ease;
+}
+
+.calculadora input[type="number"]:focus,
+.calculadora input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+}
+
+.calculadora .button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.calculadora button {
+    flex-grow: 1;
+    padding: 12px 15px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+/* Usando a cor azul do seu código para o botão principal */
+.calculadora button.calculate-btn { background-color: #007bff; }
+.calculadora button.calculate-btn:hover { background-color: #0056b3; }
+.calculadora button.clear-btn { background-color: #6c757d; }
+.calculadora button.clear-btn:hover { background-color: #5a6268; }
+.calculadora button:active { transform: translateY(1px); }
+
+.calculadora .resultado-area {
+    margin-top: 18px; /* Do seu código */
+    padding: 12px;    /* Do seu código */
+    border-radius: 4px; /* Do seu código */
+    font-size: 1.1em;
+    line-height: 1.7;
+    word-wrap: break-word;
+}
+.calculadora .resultado-area.success {
+    background-color: #e6f7ff; /* Do seu código */
+    border-left: 4px solid #007bff; /* Do seu código */
+    color: #005ea2; /* Cor do strong do seu código */
+}
+.calculadora .resultado-area.error {
+    background-color: #ffe6e6;
+    border-left: 5px solid #dc3545;
+    color: #721c24;
+    font-weight: bold;
+}
+/* .resultado-span do seu código para o valor */
+.calculadora .resultado-area .value, 
+.calculadora .resultado-area .resultado-span { 
+    font-weight: bold;
+    font-size: 1.15em; /* Do seu código */
+    color: #005ea2;   /* Do seu código */
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #6c757d;
+    background-color: #e9ecef;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Responsividade do Menu Lateral */
+@media (max-width: 768px) {
+    .sidebar .close-btn { display: block; }
+    .menu-toggle-btn { display: block; }
+    .content-area { margin-left: 0 !important; width: 100%; }
+}
+
+@media (min-width: 769px) {
+    .sidebar { left: 0; }
+    .content-area { margin-left: 280px; }
+    .menu-toggle-btn { display: none; }
+    .sidebar .close-btn { display: none; }
+}
